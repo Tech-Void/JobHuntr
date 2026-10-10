@@ -1,0 +1,81 @@
+{
+ "requisitionList": [
+  {
+   "hotJob": false,
+   "addedToJobCart": false,
+   "draft": false,
+   "alreadyAppliedOn": false,
+   "toReApply": false,
+   "jobId": "313758",
+   "contestNo": "26001EQ",
+   "column": [
+    "Database Administration Specialist - Oracle ",
+    "[\"US-IL-Springfield\"]",
+    "Oct 8, 2026"
+   ],
+   "linkedColumn": 0,
+   "locationsColumns": [
+    1
+   ]
+  },
+  {
+   "hotJob": false,
+   "addedToJobCart": false,
+   "draft": false,
+   "alreadyAppliedOn": false,
+   "toReApply": false,
+   "jobId": "313638",
+   "contestNo": "26001EF",
+   "column": [
+    "Sr Instrument Engineer",
+    "[\"US-IL-Illinois City\"]",
+    "Oct 6, 2026"
+   ],
+   "linkedColumn": 0,
+   "locationsColumns": [
+    1
+   ]
+  },
+  {
+   "hotJob": false,
+   "addedToJobCart": false,
+   "draft": false,
+   "alreadyAppliedOn": false,
+   "toReApply": false,
+   "jobId": "313581",
+   "contestNo": "26001EI",
+   "column": [
+    "Sr Managing Counsel \u2013 Environmental Health and Safety Regulatory Law",
+    "[\"US-IL-Springfield\"]",
+    "Oct 1, 2026"
+   ],
+   "linkedColumn": 0,
+   "locationsColumns": [
+    1
+   ]
+  },
+  {
+   "hotJob": false,
+   "addedToJobCart": false,
+   "draft": false,
+   "alreadyAppliedOn": false,
+   "toReApply": false,
+   "jobId": "313659",
+   "contestNo": "26001EJ",
+   "column": [
+    "Sr Counsel \u2013 Environmental Health and Safety Regulatory Law",
+    "[\"US-IL-Springfield\"]",
+    "Oct 1, 2026"
+   ],
+   "linkedColumn": 0,
+   "locationsColumns": [
+    1
+   ]
+  }
+ ],
+ "pagingData": {
+  "currentPageNo": 1,
+  "pageSize": 25,
+  "totalCount": 4
+ }
+}

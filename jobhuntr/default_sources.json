@@ -1,0 +1,179 @@
+{
+  "_comment": "Nationwide employers that hire in most metro areas. Local employers go in my_sources.json (see README); your area is set in the app.",
+  "sources": [
+    {
+      "type": "talentbrew",
+      "name": "Tenet Healthcare",
+      "category": "Hospital",
+      "base": "https://jobs.tenethealth.com"
+    },
+    {
+      "type": "usajobs",
+      "name": "USAJobs (federal)",
+      "category": "Government"
+    },
+    {
+      "type": "workday",
+      "name": "Booz Allen Hamilton",
+      "category": "Defense/Contractor",
+      "host": "bah.wd1.myworkdayjobs.com",
+      "tenant": "bah",
+      "site": "BAH_Jobs"
+    },
+    {
+      "type": "workday",
+      "name": "Leidos",
+      "category": "Defense/Contractor",
+      "host": "leidos.wd5.myworkdayjobs.com",
+      "tenant": "leidos",
+      "site": "External"
+    },
+    {
+      "type": "workday",
+      "name": "GDIT",
+      "category": "Defense/Contractor",
+      "host": "gdit.wd5.myworkdayjobs.com",
+      "tenant": "gdit",
+      "site": "External_Career_Site"
+    },
+    {
+      "type": "workday",
+      "name": "CACI",
+      "category": "Defense/Contractor",
+      "host": "caci.wd1.myworkdayjobs.com",
+      "tenant": "caci",
+      "site": "External"
+    },
+    {
+      "type": "workday",
+      "name": "ManTech",
+      "category": "Defense/Contractor",
+      "host": "mantech.wd1.myworkdayjobs.com",
+      "tenant": "mantech",
+      "site": "External"
+    },
+    {
+      "type": "workday",
+      "name": "Boeing",
+      "category": "Defense/Contractor",
+      "host": "boeing.wd1.myworkdayjobs.com",
+      "tenant": "boeing",
+      "site": "EXTERNAL_CAREERS"
+    },
+    {
+      "type": "workday",
+      "name": "Northrop Grumman",
+      "category": "Defense/Contractor",
+      "host": "ngc.wd1.myworkdayjobs.com",
+      "tenant": "ngc",
+      "site": "Northrop_Grumman_External_Site"
+    },
+    {
+      "type": "workday",
+      "name": "RTX (Raytheon)",
+      "category": "Defense/Contractor",
+      "host": "globalhr.wd5.myworkdayjobs.com",
+      "tenant": "globalhr",
+      "site": "REC_RTX_Ext_Gateway"
+    },
+    {
+      "type": "workday",
+      "name": "KBR",
+      "category": "Defense/Contractor",
+      "host": "kbr.wd5.myworkdayjobs.com",
+      "tenant": "kbr",
+      "site": "KBR_Careers"
+    },
+    {
+      "type": "workday",
+      "name": "Parsons",
+      "category": "Defense/Contractor",
+      "host": "parsons.wd5.myworkdayjobs.com",
+      "tenant": "parsons",
+      "site": "Search"
+    },
+    {
+      "type": "icims",
+      "name": "Peraton",
+      "category": "Defense/Contractor",
+      "base": "https://careers-peraton.icims.com"
+    },
+    {
+      "type": "workday",
+      "name": "Rackspace",
+      "category": "Private",
+      "host": "rackspace.wd1.myworkdayjobs.com",
+      "tenant": "rackspace",
+      "site": "External"
+    },
+    {
+      "type": "workday",
+      "name": "Humana",
+      "category": "Private",
+      "host": "humana.wd5.myworkdayjobs.com",
+      "tenant": "humana",
+      "site": "Humana_External_Career_Site"
+    },
+    {
+      "type": "workday",
+      "name": "JLL",
+      "category": "Private",
+      "host": "jll.wd1.myworkdayjobs.com",
+      "tenant": "jll",
+      "site": "jllcareers"
+    },
+    {
+      "type": "workday",
+      "name": "Toyota",
+      "category": "Private",
+      "host": "toyota.wd503.myworkdayjobs.com",
+      "tenant": "toyota",
+      "site": "TMNA"
+    },
+    {
+      "type": "workday",
+      "name": "Medtronic",
+      "category": "Private",
+      "host": "medtronic.wd1.myworkdayjobs.com",
+      "tenant": "medtronic",
+      "site": "MedtronicCareers"
+    }
+  ],
+  "manual_links": [
+    {
+      "name": "USAJobs: IT jobs near you",
+      "category": "Government",
+      "url": "https://www.usajobs.gov/Search/Results?l={place}&k=information%20technology&r={radius}"
+    },
+    {
+      "name": "GovernmentJobs: city, county & state jobs",
+      "category": "Government",
+      "url": "https://www.governmentjobs.com/jobs?keyword=information%20technology&location={place}"
+    },
+    {
+      "name": "ClearanceJobs: cleared & sponsorable roles",
+      "category": "Defense/Contractor",
+      "url": "https://www.clearancejobs.com/jobs?loc={place}&keywords=cyber"
+    },
+    {
+      "name": "HCA Healthcare hospitals",
+      "category": "Hospital",
+      "url": "https://careers.hcahealthcare.com/search-jobs/{place}?k=information%20technology"
+    },
+    {
+      "name": "SAIC",
+      "category": "Defense/Contractor",
+      "url": "https://jobs.saic.com/jobs?keywords=information%20technology&location={place}"
+    },
+    {
+      "name": "LinkedIn Jobs",
+      "category": "Private",
+      "url": "https://www.linkedin.com/jobs/search/?keywords=information%20technology&location={place}"
+    },
+    {
+      "name": "Indeed",
+      "category": "Private",
+      "url": "https://www.indeed.com/jobs?q=information+technology&l={place}"
+    }
+  ]
+}

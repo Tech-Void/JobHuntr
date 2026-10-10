@@ -1,0 +1,592 @@
+{
+ "jobs": [
+  {
+   "data": {
+    "slug": "234180",
+    "language": "en-us",
+    "languages": [
+     "en-us"
+    ],
+    "req_id": "234180",
+    "title": "Sr. Manager of Security Architecture (Telemetry)-Peoria & Springfield, IL",
+    "description": "Responsibilities Job Summary: As a Sr. Manager of Security Architecture & Engineering, you'll lead a team responsible for the platforms and processes that power security monitoring across Example Grocer's digital environment. This team owns security telemetry ingestion, log routing and transformation, SIEM administration, telemetry standards, and data onboarding. You'll ensure high-quality, reliable security data is available to support threat detection, incident response, and enterprise visibility while partnering with Engineering, Infrastructure, Cloud, and Security teams to continuously improve security monitoring capabilities. Qualifications & Key Requirements: Work Experience: 7+ years of experience leading Security Engineering, Security Operations, SIEM Engineering, or Security Platform teams responsible for enterprise-scale security monitoring and telemetry platforms. Experience administering and optimizing SIEM platforms, including Google SecOps, log ingestion pipelines, parser management, storage optimization, and integration health. Hands-on experience with Cribl or similar log routing and transformation technologies, including telemetry collection, normalization, enrichment, routing, and data pipeline reliability. Strong understanding of security telemetry architecture, including log onboarding, schema standards, data quality validation, and ensuring comprehensive visibility across cloud, SaaS, network, and application environments. Experience partnering with Engineering, I",
+    "location_name": "Digital Admin-SPI",
+    "street_address": "",
+    "city": "Springfield",
+    "state": "Illinois",
+    "country": "United States",
+    "country_code": "US",
+    "postal_code": "62701",
+    "location_type": "LAT_LNG",
+    "latitude": 39.78,
+    "longitude": -89.65,
+    "categories": [
+     {
+      "name": "Digital"
+     }
+    ],
+    "tags": null,
+    "tags1": null,
+    "tags2": null,
+    "tags4": null,
+    "tags5": null,
+    "tags6": null,
+    "tags7": null,
+    "brand": "examplegrocer",
+    "promotion_value": 0,
+    "employment_type": "FULL_TIME",
+    "hiring_organization": "examplegrocer",
+    "responsibilities": "Job Summary: As a Sr. Manager of Security Architecture & Engineering, you'll lead a team responsible for the platforms and processes that power security monitoring across Example Grocer's digital environment. This team owns security telemetry ingestion, log routing and transformation, SIEM administration, telemetry standards, and data onboarding. You'll ensure high-quality, reliable security data is available to support threat detection, incident response, and enterprise visibility while partnering with Engineering, Infrastructure, Cloud, and Security teams to continuously improve security monitoring capabilities. Qualifications & Key Requirements: Work Experience: 7+ years of experience leading Security Engineering, Security Operations, SIEM Engineering, or Security Platform teams responsible for enterprise-scale security monitoring and telemetry platforms. Experience administering and optimizing SIEM platforms, including Google SecOps, log ingestion pipelines, parser management, storage optimization, and integration health. Hands-on experience with Cribl or similar log routing and transformation technologies, including telemetry collection, normalization, enrichment, routing, and data pipeline reliability. Strong understanding of security telemetry architecture, including log onboarding, schema standards, data quality validation, and ensuring comprehensive visibility across cloud, SaaS, network, and application environments. Experience partnering with Engineering, Infrastructure, Cl",
+    "source": "examplegrocer",
+    "posted_date": "2026-09-21T14:30:00+0000",
+    "posting_expiry_date": "2026-10-10T00:00:00+0000",
+    "apply_url": "https://careers-examplegrocer.icims.com/jobs/234180/login",
+    "internal": false,
+    "external": false,
+    "searchable": true,
+    "applyable": true,
+    "li_easy_applyable": true,
+    "ats_code": "icims",
+    "isFrontLineAIJob": false,
+    "isApplyFlowJob": false,
+    "meta_data": null,
+    "update_date": "2026-10-06T12:36:06+0000",
+    "create_date": "2026-09-21T14:35:43+0000",
+    "category": [
+     " Digital"
+    ],
+    "full_location": "Springfield, Illinois",
+    "short_location": "Springfield, Illinois",
+    "multipleLocations": false
+   }
+  },
+  {
+   "data": {
+    "slug": "200846",
+    "language": "en-us",
+    "languages": [
+     "en-us"
+    ],
+    "req_id": "200846",
+    "title": "Manager of Security Engineering-Edge (Peoria & Springfield, IL)",
+    "description": "Responsibilities Job Summary: As a Manager, Edge Security Engineering, you'll lead a team responsible for securing Example Grocer's enterprise perimeter across network, cloud access, browser, endpoint, and email security. This team owns both the architecture and operation of security controls that ensure access is granted by policy, unauthorized access paths are eliminated, and data is protected across users, devices, workloads, and internal systems. The role is responsible for balancing operational excellence with automation and platform engineering, continuously improving security capabilities while driving efficiency at scale. Responsibilities include team leadership, strategic planning, prioritization, stakeholder management, budgeting, and performance management. Location: Springfield or Peoria, IL (Hybrid) Key Responsibilities & Essential Functions: Directs and controls the activities of a broad functional area through several departments within the function. Has control of planning, staffing, budget attainment, and recommending / implementing changes to methods. Management: Manages one or multiple work groups or units in several different areas or a large functional unit; leads / manages daily coordination of technical staff and vendors Manages production or services of one or more departments or areas, with a high level of complexity and business impact Hires / maintains staffing / fires/ promotes / demotes / transfers / disciplines approves raises; manages / develops / trains",
+    "location_name": "Digital Security-SPI/West",
+    "street_address": "",
+    "city": "Springfield",
+    "state": "Illinois",
+    "country": "United States",
+    "country_code": "US",
+    "postal_code": "62701",
+    "location_type": "LAT_LNG",
+    "latitude": 39.78,
+    "longitude": -89.65,
+    "categories": [
+     {
+      "name": "Digital"
+     }
+    ],
+    "tags": null,
+    "tags1": null,
+    "tags2": null,
+    "tags4": null,
+    "tags5": null,
+    "tags6": null,
+    "tags7": null,
+    "brand": "examplegrocer",
+    "promotion_value": 0,
+    "employment_type": "FULL_TIME",
+    "hiring_organization": "examplegrocer",
+    "responsibilities": "Job Summary: As a Manager, Edge Security Engineering, you'll lead a team responsible for securing Example Grocer's enterprise perimeter across network, cloud access, browser, endpoint, and email security. This team owns both the architecture and operation of security controls that ensure access is granted by policy, unauthorized access paths are eliminated, and data is protected across users, devices, workloads, and internal systems. The role is responsible for balancing operational excellence with automation and platform engineering, continuously improving security capabilities while driving efficiency at scale. Responsibilities include team leadership, strategic planning, prioritization, stakeholder management, budgeting, and performance management. Location: Springfield or Peoria, IL (Hybrid) Key Responsibilities & Essential Functions: Directs and controls the activities of a broad functional area through several departments within the function. Has control of planning, staffing, budget attainment, and recommending / implementing changes to methods. Management: Manages one or multiple work groups or units in several different areas or a large functional unit; leads / manages daily coordination of technical staff and vendors Manages production or services of one or more departments or areas, with a high level of complexity and business impact Hires / maintains staffing / fires/ promotes / demotes / transfers / disciplines approves raises; manages / develops / trains teams to achieve",
+    "source": "examplegrocer",
+    "posted_date": "2026-09-24T15:46:00+0000",
+    "posting_expiry_date": "2026-10-10T00:00:00+0000",
+    "apply_url": "https://careers-examplegrocer.icims.com/jobs/200846/login",
+    "internal": false,
+    "external": false,
+    "searchable": true,
+    "applyable": true,
+    "li_easy_applyable": true,
+    "ats_code": "icims",
+    "isFrontLineAIJob": false,
+    "isApplyFlowJob": false,
+    "meta_data": null,
+    "update_date": "2026-10-06T12:35:52+0000",
+    "create_date": "2026-09-24T15:47:18+0000",
+    "category": [
+     " Digital"
+    ],
+    "full_location": "Springfield, Illinois",
+    "short_location": "Springfield, Illinois",
+    "multipleLocations": false
+   }
+  },
+  {
+   "data": {
+    "slug": "213770",
+    "language": "en-us",
+    "languages": [
+     "en-us"
+    ],
+    "req_id": "213770",
+    "title": "Staff App Sec Engineer-Peoria, Dallas or Springfield, IL",
+    "description": "Responsibilities Job Summary: As a Staff Application Security Engineer, you'll consult and collaborate with internal business team Partners and external vendors to collect requirements, build, and test specifications, and implement documented innovative technical solutions of security requirements. You'll also coach and mentor. Location: Peoria, Dallas or Springfield, IL (Hybrid) Key Responsibilities & Essential Functions: Masters CI / CD pipelines; creates patterns of automation, infrastructure deployment, maintenance, monitoring, security, and compliance using industry and enterprise best practices Collaborates with Digital Tech teams to design / develop / analyze / implement systems software and applications Builds security standards for teams; integrates platform, including container and vulnerability management tools within CI / CD pipelines Serves as SME for application security; provides guidance / coaches on industry best practices and defense in-depth strategies for security posture of cloud-based digital platforms Collaborates with project teams on testing / evaluation of new solutions; tests cloud configurations and infrastructure for vulnerabilities Ensures cloud infrastructure complies with security and compliance control requirements Designs, develops, documents, automates, implements security infrastructure in code Ensures concise documentation to formalize security processes and guardrails Guides development teams to apply secure automation patterns / encourag",
+    "location_name": "Digital Admin-SPI",
+    "street_address": "",
+    "city": "Springfield",
+    "state": "Illinois",
+    "country": "United States",
+    "country_code": "US",
+    "postal_code": "62701",
+    "location_type": "LAT_LNG",
+    "latitude": 39.78,
+    "longitude": -89.65,
+    "categories": [
+     {
+      "name": "Digital"
+     }
+    ],
+    "tags": null,
+    "tags1": null,
+    "tags2": null,
+    "tags4": null,
+    "tags5": null,
+    "tags6": null,
+    "tags7": null,
+    "brand": "examplegrocer",
+    "promotion_value": 0,
+    "employment_type": "FULL_TIME",
+    "hiring_organization": "examplegrocer",
+    "responsibilities": "Job Summary: As a Staff Application Security Engineer, you'll consult and collaborate with internal business team Partners and external vendors to collect requirements, build, and test specifications, and implement documented innovative technical solutions of security requirements. You'll also coach and mentor. Location: Peoria, Dallas or Springfield, IL (Hybrid) Key Responsibilities & Essential Functions: Masters CI / CD pipelines; creates patterns of automation, infrastructure deployment, maintenance, monitoring, security, and compliance using industry and enterprise best practices Collaborates with Digital Tech teams to design / develop / analyze / implement systems software and applications Builds security standards for teams; integrates platform, including container and vulnerability management tools within CI / CD pipelines Serves as SME for application security; provides guidance / coaches on industry best practices and defense in-depth strategies for security posture of cloud-based digital platforms Collaborates with project teams on testing / evaluation of new solutions; tests cloud configurations and infrastructure for vulnerabilities Ensures cloud infrastructure complies with security and compliance control requirements Designs, develops, documents, automates, implements security infrastructure in code Ensures concise documentation to formalize security processes and guardrails Guides development teams to apply secure automation patterns / encourage secure software",
+    "source": "examplegrocer",
+    "posted_date": "2026-10-05T20:24:00+0000",
+    "posting_expiry_date": "2026-10-30T00:00:00+0000",
+    "apply_url": "https://careers-examplegrocer.icims.com/jobs/213770/login",
+    "internal": false,
+    "external": false,
+    "searchable": true,
+    "applyable": true,
+    "li_easy_applyable": true,
+    "ats_code": "icims",
+    "isFrontLineAIJob": false,
+    "isApplyFlowJob": false,
+    "meta_data": null,
+    "update_date": "2026-10-06T12:35:55+0000",
+    "create_date": "2026-10-05T20:25:30+0000",
+    "category": [
+     " Digital"
+    ],
+    "full_location": "Springfield, Illinois",
+    "short_location": "Springfield, Illinois",
+    "multipleLocations": false
+   }
+  }
+ ],
+ "locations": [],
+ "totalCount": 3,
+ "request_id": false,
+ "meta_data": {
+  "ResponseMetadata": {
+   "requestId": "b0118c08-252a-4ef8-9a82-2d9335f862b7:APAb7IRVUOKpnpio6PpfzAroIWW8OS/LIQ=="
+  }
+ },
+ "count": 32,
+ "languageCounts": {
+  "en-us": {
+   "displayName": "English",
+   "count": 32
+  }
+ },
+ "filter": {
+  "facetList": {
+   "tags1": [
+    {
+     "term": "Full Time",
+     "count": 29
+    },
+    {
+     "term": "Part Time",
+     "count": 3
+    }
+   ],
+   "tags2": [
+    {
+     "term": "CM Store Ops - Service",
+     "count": 1
+    },
+    {
+     "term": "Cyber Fus Ctr Offensive Sec",
+     "count": 1
+    },
+    {
+     "term": "Digital App Sec Engineering",
+     "count": 1
+    },
+    {
+     "term": "Digital Data Engineering",
+     "count": 2
+    },
+    {
+     "term": "Digital Eng Security Arch",
+     "count": 1
+    },
+    {
+     "term": "Digital Software Engineering",
+     "count": 10
+    },
+    {
+     "term": "Digital Systems Engineering",
+     "count": 2
+    },
+    {
+     "term": "GRC",
+     "count": 1
+    },
+    {
+     "term": "IFS Technicians",
+     "count": 1
+    },
+    {
+     "term": "LP Regional",
+     "count": 2
+    },
+    {
+     "term": "Protection",
+     "count": 1
+    },
+    {
+     "term": "Smart Shop Ops Non-Management",
+     "count": 2
+    },
+    {
+     "term": "Software Engineering",
+     "count": 1
+    },
+    {
+     "term": "Store Operations - Non Mgt",
+     "count": 4
+    },
+    {
+     "term": "Vehicle Operators",
+     "count": 2
+    }
+   ],
+   "tags4": [
+    {
+     "term": "Exempt",
+     "count": 20
+    },
+    {
+     "term": "Non-Exempt",
+     "count": 12
+    }
+   ],
+   "tags5": [
+    {
+     "term": "Central Market Division",
+     "count": 1
+    },
+    {
+     "term": "Central Illinois Stores",
+     "count": 1
+    },
+    {
+     "term": "Digital",
+     "count": 19
+    },
+    {
+     "term": "Houston Stores",
+     "count": 1
+    },
+    {
+     "term": "Industrial Properties",
+     "count": 1
+    },
+    {
+     "term": "Loss Prevention",
+     "count": 2
+    },
+    {
+     "term": "Mi Tienda Stores",
+     "count": 1
+    },
+    {
+     "term": "North/West Food Drug Stores",
+     "count": 1
+    },
+    {
+     "term": "Smart Shop Stores",
+     "count": 2
+    },
+    {
+     "term": "Transportation",
+     "count": 2
+    }
+   ],
+   "tags7": [
+    {
+     "term": "Corporate",
+     "count": 22
+    },
+    {
+     "term": "Store",
+     "count": 6
+    },
+    {
+     "term": "Store Ops Region/Division",
+     "count": 1
+    },
+    {
+     "term": "Supply Chain",
+     "count": 3
+    }
+   ]
+  },
+  "displayLimit": 10,
+  "brands": {
+   "all": [
+    {
+     "brand": "examplegrocer",
+     "numJobs": 30
+    },
+    {
+     "brand": "Joe V's Smart Shop",
+     "numJobs": 2
+    }
+   ],
+   "shortlist": [
+    {
+     "brand": "examplegrocer",
+     "numJobs": 30
+    },
+    {
+     "brand": "Joe V's Smart Shop",
+     "numJobs": 2
+    }
+   ]
+  },
+  "categories": {
+   "all": [
+    {
+     "category": "Central Market Store Ops",
+     "numJobs": 1
+    },
+    {
+     "category": "Digital",
+     "numJobs": 19
+    },
+    {
+     "category": "Industrial Properties",
+     "numJobs": 1
+    },
+    {
+     "category": "Joe V's Smart Shop",
+     "numJobs": 2
+    },
+    {
+     "category": "Loss Prevention",
+     "numJobs": 2
+    },
+    {
+     "category": "Security",
+     "numJobs": 1
+    },
+    {
+     "category": "Store Operations",
+     "numJobs": 4
+    },
+    {
+     "category": "Transportation",
+     "numJobs": 2
+    }
+   ],
+   "shortlist": [
+    {
+     "category": "Central Market Store Ops",
+     "numJobs": 1
+    },
+    {
+     "category": "Digital",
+     "numJobs": 19
+    },
+    {
+     "category": "Industrial Properties",
+     "numJobs": 1
+    },
+    {
+     "category": "Joe V's Smart Shop",
+     "numJobs": 2
+    },
+    {
+     "category": "Loss Prevention",
+     "numJobs": 2
+    },
+    {
+     "category": "Security",
+     "numJobs": 1
+    },
+    {
+     "category": "Store Operations",
+     "numJobs": 4
+    },
+    {
+     "category": "Transportation",
+     "numJobs": 2
+    }
+   ]
+  },
+  "locations": {
+   "all": [
+    {
+     "city": "Peoria",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 5
+    },
+    {
+     "city": "Beaumont",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Peoria",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Dallas",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Champaign",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Fort Worth",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Hempstead",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Houston",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Humble",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 2
+    },
+    {
+     "city": "Pflugerville",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Springfield",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 17
+    },
+    {
+     "city": "Temple",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    }
+   ],
+   "shortlist": [
+    {
+     "city": "Peoria",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 5
+    },
+    {
+     "city": "Beaumont",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Peoria",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Dallas",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Champaign",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Fort Worth",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Hempstead",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Houston",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Humble",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 2
+    },
+    {
+     "city": "Pflugerville",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    },
+    {
+     "city": "Springfield",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 17
+    },
+    {
+     "city": "Temple",
+     "state": "Illinois",
+     "country": "United States",
+     "count": 1
+    }
+   ]
+  },
+  "experienceLevels": {
+   "all": [],
+   "shortlist": []
+  }
+ }
+}

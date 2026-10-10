@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JobHuntr</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='white' stroke-width='3'/%3E%3Cpath d='M16 3v6M16 23v6M3 16h6M23 16h6' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/style.css">
+<script>/* apply the saved theme before first paint */try{var t=JSON.parse(localStorage.getItem("jh.theme"));if(t&&t!=="system")document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="6"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></svg></span>
+      JobHuntr <small>v2.1</small>
+    </div>
+    <nav class="nav" id="nav">
+      <button data-view="jobs" class="active"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Jobs</button>
+      <button data-view="compare"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>Compare<span class="badge" id="compareCount">0</span></button>
+      <button data-view="tracker"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Applications<span class="badge" id="trackCount">0</span></button>
+      <button data-view="insights"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/></svg>Insights</button>
+      <button data-view="profile"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>My resume</button>
+      <button data-view="searches"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Saved searches</button>
+      <button data-view="settings"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Sources &amp; settings</button>
+    </nav>
+    <div>
+      <h4>Searches</h4>
+      <div class="searchlist" id="searchList"></div>
+    </div>
+    <div class="crawlbox">
+      <div class="theme-switch" id="themeSwitch" role="group" aria-label="Theme">
+        <button data-theme-set="system" title="Follow Windows">Auto</button>
+        <button data-theme-set="light">Light</button>
+        <button data-theme-set="dark">Dark</button>
+        <button data-theme-set="night">Night</button>
+      </div>
+      <button class="btn primary" id="crawlBtn">Run crawl</button>
+      <div class="bar" id="crawlBar" hidden><i></i></div>
+      <div class="meta" id="crawlMeta">Never crawled</div>
+    </div>
+  </aside>
+  <main class="main"><div class="page" id="view"></div></main>
+</div>
+
+<dialog id="manualDialog">
+  <form method="dialog" class="form" id="manualForm">
+    <h3>Add an application</h3>
+    <p class="help" style="margin:-6px 0 4px;color:var(--muted);font-size:13px">For jobs you applied to outside JobHuntr (Indeed, LinkedIn, referrals…).</p>
+    <label class="f">Job title<input type="text" name="title" required></label>
+    <div class="row2">
+      <label class="f">Company<input type="text" name="company" required></label>
+      <label class="f">Location<input type="text" name="location" placeholder="City, ST"></label>
+    </div>
+    <label class="f">Link to posting<input type="url" name="url" placeholder="https://…"></label>
+    <div class="row2">
+      <label class="f">Category<select name="category"><option>Hospital</option><option>Government</option><option>Defense/Contractor</option><option selected>Private</option><option>Education</option><option>Other</option></select></label>
+      <label class="f">Status<select name="status"><option value="applied">Applied</option><option value="interviewing">Interviewing</option><option value="offer">Offer</option><option value="rejected">Rejected</option><option value="ghosted">Ghosted</option></select></label>
+    </div>
+    <label class="f">Notes<textarea name="notes" rows="2"></textarea></label>
+    <div class="dialog-actions"><button class="btn" value="cancel" formnovalidate>Cancel</button><button class="btn primary" value="ok">Add</button></div>
+  </form>
+</dialog>
+
+<dialog id="areaDialog">
+  <form method="dialog" class="form" id="areaForm">
+    <h3>Where are you job hunting?</h3>
+    <p class="help" style="margin:-6px 0 4px;color:var(--muted);font-size:13px">JobHuntr searches every employer for jobs in this area (plus remote jobs, if you want them). You can change it later in Sources &amp; settings.</p>
+    <div class="row2">
+      <label class="f">City<input type="text" name="city" required placeholder="e.g. Denver"></label>
+      <label class="f">State<select name="state" id="areaState"></select></label>
+    </div>
+    <label class="f">Nearby towns, bases or suburbs that also count (optional, comma separated)
+      <input type="text" name="nearby" placeholder="e.g. Aurora, Lakewood, Buckley SFB"></label>
+    <label class="f">Federal job search radius (miles)<input type="number" name="radius" min="5" max="200" value="50"></label>
+    <div class="dialog-actions"><button class="btn" value="cancel" formnovalidate>Later</button><button class="btn primary" value="ok">Save area</button></div>
+  </form>
+</dialog>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

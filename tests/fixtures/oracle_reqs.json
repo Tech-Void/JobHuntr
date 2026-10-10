@@ -1,0 +1,562 @@
+{
+ "items": [
+  {
+   "SearchId": 1,
+   "Keyword": null,
+   "CorrectedKeyword": null,
+   "UseExactKeywordFlag": false,
+   "SuggestedKeyword": null,
+   "ExecuteSpellCheckFlag": true,
+   "Location": null,
+   "LocationId": null,
+   "Radius": 0,
+   "RadiusUnit": "MI",
+   "SelectedTitlesFacet": null,
+   "SelectedCategoriesFacet": null,
+   "SelectedPostingDatesFacet": null,
+   "SelectedLocationsFacet": null,
+   "LastSelectedFacet": null,
+   "Facets": "TITLES;LOCATIONS;LOCATION_LEVEL1;LOCATION_LEVEL2;LOCATION_LEVEL3;CATEGORIES;POSTING_DATES;WORK_LOCATIONS;FLEX_FIELDS;ORGANIZATIONS;WORKPLACE_TYPES",
+   "Offset": 0,
+   "Limit": 5,
+   "SortBy": "POSTING_DATES_DESC",
+   "TotalJobsCount": 5,
+   "Latitude": null,
+   "Longitude": null,
+   "SiteNumber": "CX_1002",
+   "JobFamilyId": null,
+   "PostingStartDate": null,
+   "PostingEndDate": null,
+   "SelectedWorkLocationsFacet": null,
+   "RequisitionId": null,
+   "CandidateNumber": null,
+   "WorkLocationZipCode": null,
+   "WorkLocationCountryCode": null,
+   "SelectedFlexFieldsFacets": null,
+   "OrganizationId": null,
+   "SelectedOrganizationsFacet": null,
+   "UserTargetFacetName": null,
+   "UserTargetFacetInputTerm": null,
+   "HotJobFlag": null,
+   "WorkplaceType": null,
+   "SelectedWorkplaceTypesFacet": null,
+   "BotQRShortCode": null,
+   "requisitionList": [
+    {
+     "Id": "7504",
+     "Title": "Call Center Agent (Surgical Oncology ECC)",
+     "PostedDate": "2026-10-09",
+     "PostingEndDate": null,
+     "Language": "US",
+     "PrimaryLocationCountry": "US",
+     "GeographyId": 300000002008737,
+     "HotJobFlag": true,
+     "WorkplaceTypeCode": "ORA_ON_SITE",
+     "JobFamily": "Clinical Programs & Services",
+     "JobFunction": null,
+     "WorkerType": null,
+     "ContractType": null,
+     "ManagerLevel": null,
+     "JobSchedule": "Full time",
+     "JobShift": null,
+     "JobType": null,
+     "StudyLevel": null,
+     "DomesticTravelRequired": null,
+     "InternationalTravelRequired": null,
+     "WorkDurationYears": null,
+     "WorkDurationMonths": null,
+     "WorkHours": null,
+     "WorkDays": null,
+     "LegalEmployer": null,
+     "BusinessUnit": null,
+     "Department": "O9824 - HOPD Surgical Oncology ECC",
+     "Organization": null,
+     "BusinessUnitId": 300000001842292,
+     "LegalEmployerId": 300000001845034,
+     "OrganizationId": 300001170471422,
+     "MediaThumbURL": null,
+     "ShortDescriptionStr": "None",
+     "PrimaryLocation": "Springfield, IL, United States",
+     "Distance": 1791504000000.0,
+     "TrendingFlag": false,
+     "BeFirstToApplyFlag": false,
+     "Relevancy": 16,
+     "WorkplaceType": "On-site",
+     "ExternalQualificationsStr": null,
+     "ExternalResponsibilitiesStr": null,
+     "secondaryLocations": []
+    },
+    {
+     "Id": "7796",
+     "Title": "Phlebotomist-Senior",
+     "PostedDate": "2026-10-09",
+     "PostingEndDate": null,
+     "Language": "US",
+     "PrimaryLocationCountry": "US",
+     "GeographyId": 300000002008737,
+     "HotJobFlag": false,
+     "WorkplaceTypeCode": "ORA_ON_SITE",
+     "JobFamily": "Clinical Programs & Services",
+     "JobFunction": null,
+     "WorkerType": null,
+     "ContractType": null,
+     "ManagerLevel": null,
+     "JobSchedule": "Full time",
+     "JobShift": null,
+     "JobType": null,
+     "StudyLevel": null,
+     "DomesticTravelRequired": null,
+     "InternationalTravelRequired": null,
+     "WorkDurationYears": null,
+     "WorkDurationMonths": null,
+     "WorkHours": null,
+     "WorkDays": null,
+     "LegalEmployer": null,
+     "BusinessUnit": null,
+     "Department": "O3020 - MSRH Lab Services",
+     "Organization": null,
+     "BusinessUnitId": 300000001842292,
+     "LegalEmployerId": 300000001845034,
+     "OrganizationId": 300001192074205,
+     "MediaThumbURL": null,
+     "ShortDescriptionStr": "",
+     "PrimaryLocation": "Springfield, IL, United States",
+     "Distance": 1791504000000.0,
+     "TrendingFlag": false,
+     "BeFirstToApplyFlag": false,
+     "Relevancy": 10.0,
+     "WorkplaceType": "On-site",
+     "ExternalQualificationsStr": null,
+     "ExternalResponsibilitiesStr": null,
+     "secondaryLocations": []
+    },
+    {
+     "Id": "7982",
+     "Title": "Medical Assistant - Intermediate (Decatur Alzheimer\u2019s Clinic)",
+     "PostedDate": "2026-10-09",
+     "PostingEndDate": null,
+     "Language": "US",
+     "PrimaryLocationCountry": "US",
+     "GeographyId": 300000002010539,
+     "HotJobFlag": false,
+     "WorkplaceTypeCode": "ORA_ON_SITE",
+     "JobFamily": "Clinical Programs & Services",
+     "JobFunction": null,
+     "WorkerType": null,
+     "ContractType": null,
+     "ManagerLevel": null,
+     "JobSchedule": "Full time",
+     "JobShift": null,
+     "JobType": null,
+     "StudyLevel": null,
+     "DomesticTravelRequired": null,
+     "InternationalTravelRequired": null,
+     "WorkDurationYears": null,
+     "WorkDurationMonths": null,
+     "WorkHours": null,
+     "WorkDays": null,
+     "LegalEmployer": null,
+     "BusinessUnit": null,
+     "Department": "M3627 - UTHP ANDI Decatur Campus",
+     "Organization": null,
+     "BusinessUnitId": 300000001842292,
+     "LegalEmployerId": 300000001845034,
+     "OrganizationId": 300000162793842,
+     "MediaThumbURL": null,
+     "ShortDescriptionStr": "None",
+     "PrimaryLocation": "Decatur, IL, United States",
+     "Distance": 1791504000000.0,
+     "TrendingFlag": false,
+     "BeFirstToApplyFlag": true,
+     "Relevancy": 10.0,
+     "WorkplaceType": "On-site",
+     "ExternalQualificationsStr": null,
+     "ExternalResponsibilitiesStr": null,
+     "secondaryLocations": []
+    },
+    {
+     "Id": "8209",
+     "Title": "Certified Ophthalmic Technician - COT",
+     "PostedDate": "2026-10-09",
+     "PostingEndDate": null,
+     "Language": "US",
+     "PrimaryLocationCountry": "US",
+     "GeographyId": 300000002008737,
+     "HotJobFlag": false,
+     "WorkplaceTypeCode": "ORA_ON_SITE",
+     "JobFamily": "Clinical Programs & Services",
+     "JobFunction": null,
+     "WorkerType": null,
+     "ContractType": null,
+     "ManagerLevel": null,
+     "JobSchedule": "Full time",
+     "JobShift": null,
+     "JobType": null,
+     "StudyLevel": null,
+     "DomesticTravelRequired": null,
+     "InternationalTravelRequired": null,
+     "WorkDurationYears": null,
+     "WorkDurationMonths": null,
+     "WorkHours": null,
+     "WorkDays": null,
+     "LegalEmployer": null,
+     "BusinessUnit": null,
+     "Department": "M9746 - UTHP Ophthalmology KSP",
+     "Organization": null,
+     "BusinessUnitId": 300000001842292,
+     "LegalEmployerId": 300000001845034,
+     "OrganizationId": 300001170973167,
+     "MediaThumbURL": null,
+     "ShortDescriptionStr": "None",
+     "PrimaryLocation": "Springfield, IL, United States",
+     "Distance": 1791504000000.0,
+     "TrendingFlag": false,
+     "BeFirstToApplyFlag": true,
+     "Relevancy": 10.0,
+     "WorkplaceType": "On-site",
+     "ExternalQualificationsStr": null,
+     "ExternalResponsibilitiesStr": null,
+     "secondaryLocations": []
+    },
+    {
+     "Id": "8212",
+     "Title": "Dental Assistant (Predoctoral Dental Education)",
+     "PostedDate": "2026-10-09",
+     "PostingEndDate": null,
+     "Language": "US",
+     "PrimaryLocationCountry": "US",
+     "GeographyId": 300000002008737,
+     "HotJobFlag": false,
+     "WorkplaceTypeCode": "ORA_ON_SITE",
+     "JobFamily": "Clinical Programs & Services",
+     "JobFunction": null,
+     "WorkerType": null,
+     "ContractType": null,
+     "ManagerLevel": null,
+     "JobSchedule": "Full time",
+     "JobShift": null,
+     "JobType": null,
+     "StudyLevel": null,
+     "DomesticTravelRequired": null,
+     "InternationalTravelRequired": null,
+     "WorkDurationYears": null,
+     "WorkDurationMonths": null,
+     "WorkHours": null,
+     "WorkDays": null,
+     "LegalEmployer": null,
+     "BusinessUnit": null,
+     "Department": "D2300 - Predoctoral Dental Education",
+     "Organization": null,
+     "BusinessUnitId": 300000001842292,
+     "LegalEmployerId": 300000001845034,
+     "OrganizationId": 300000007385264,
+     "MediaThumbURL": null,
+     "ShortDescriptionStr": "None",
+     "PrimaryLocation": "Springfield, IL, United States",
+     "Distance": 1791504000000.0,
+     "TrendingFlag": false,
+     "BeFirstToApplyFlag": true,
+     "Relevancy": 10.0,
+     "WorkplaceType": "On-site",
+     "ExternalQualificationsStr": null,
+     "ExternalResponsibilitiesStr": null,
+     "secondaryLocations": []
+    }
+   ],
+   "categoriesFacet": [
+    {
+     "Id": 300000007236264,
+     "Name": "Clinical Programs & Services",
+     "TotalCount": 168
+    },
+    {
+     "Id": 300000007236283,
+     "Name": "Research",
+     "TotalCount": 30
+    },
+    {
+     "Id": 300000007236295,
+     "Name": "Finance",
+     "TotalCount": 12
+    },
+    {
+     "Id": 300000007236308,
+     "Name": "Administration",
+     "TotalCount": 11
+    },
+    {
+     "Id": 300000007236312,
+     "Name": "Facilities & Engineering Oper",
+     "TotalCount": 10
+    },
+    {
+     "Id": 300000007236343,
+     "Name": "Information Technology",
+     "TotalCount": 8
+    },
+    {
+     "Id": 300000007236275,
+     "Name": "Acad Prog & Student Services",
+     "TotalCount": 5
+    },
+    {
+     "Id": 300000007236287,
+     "Name": "Law Enforcement",
+     "TotalCount": 2
+    },
+    {
+     "Id": 300000007236335,
+     "Name": "Compliance & Legal",
+     "TotalCount": 2
+    },
+    {
+     "Id": 300000007236240,
+     "Name": "Purchasing",
+     "TotalCount": 1
+    }
+   ],
+   "locationsFacet": [
+    {
+     "Id": 300000000385768,
+     "Name": "United States",
+     "TotalCount": 253
+    },
+    {
+     "Id": 300000001861044,
+     "Name": "IL, United States",
+     "TotalCount": 252
+    },
+    {
+     "Id": 300000002008737,
+     "Name": "Springfield, IL, United States",
+     "TotalCount": 248
+    },
+    {
+     "Id": 300000002010539,
+     "Name": "Decatur, IL, United States",
+     "TotalCount": 2
+    },
+    {
+     "Id": 300000002009063,
+     "Name": "Fort Hood, IL, United States",
+     "TotalCount": 1
+    }
+   ],
+   "postingDatesFacet": [
+    {
+     "Id": 7,
+     "Name": "Less than 7 days",
+     "TotalCount": 53
+    },
+    {
+     "Id": 30,
+     "Name": "Less than 30 days",
+     "TotalCount": 188
+    },
+    {
+     "Id": 31,
+     "Name": "Greater than 30 days",
+     "TotalCount": 65
+    }
+   ],
+   "titlesFacet": [
+    {
+     "Id": "030",
+     "Name": "Patient Care Services",
+     "TotalCount": 130
+    },
+    {
+     "Id": "034",
+     "Name": "Healthcare Administration",
+     "TotalCount": 26
+    },
+    {
+     "Id": "161",
+     "Name": "Research",
+     "TotalCount": 21
+    },
+    {
+     "Id": "020",
+     "Name": "Administration",
+     "TotalCount": 12
+    },
+    {
+     "Id": "032",
+     "Name": "Health Information Management",
+     "TotalCount": 7
+    },
+    {
+     "Id": "162",
+     "Name": "Research Support",
+     "TotalCount": 6
+    },
+    {
+     "Id": "010",
+     "Name": "Academic Programs",
+     "TotalCount": 4
+    },
+    {
+     "Id": "014",
+     "Name": "Registration and Records",
+     "TotalCount": 4
+    },
+    {
+     "Id": "054",
+     "Name": "Facilities Management&Services",
+     "TotalCount": 4
+    },
+    {
+     "Id": "062",
+     "Name": "FinancialOperations&Accounting",
+     "TotalCount": 4
+    }
+   ],
+   "workLocationsFacet": [
+    {
+     "Id": 300000007363932,
+     "Name": "Medical Sch Bld",
+     "TotalCount": 120
+    },
+    {
+     "Id": 300000007363976,
+     "Name": "MARC Clinic Building Res Ctr",
+     "TotalCount": 41
+    },
+    {
+     "Id": 300000007363816,
+     "Name": "Dental Sch Bld",
+     "TotalCount": 18
+    },
+    {
+     "Id": 300000007364153,
+     "Name": "Professional Admin Resc Center",
+     "TotalCount": 12
+    },
+    {
+     "Id": 300000007359815,
+     "Name": "CTRC - Wurzbach",
+     "TotalCount": 9
+    },
+    {
+     "Id": 300000007363450,
+     "Name": "Phys Plant Bld",
+     "TotalCount": 9
+    },
+    {
+     "Id": 300000007360182,
+     "Name": "UPG - Crystal Mall",
+     "TotalCount": 7
+    },
+    {
+     "Id": 300000007363311,
+     "Name": "Admin Bld",
+     "TotalCount": 4
+    },
+    {
+     "Id": 300000007363531,
+     "Name": "Police Bld",
+     "TotalCount": 3
+    },
+    {
+     "Id": 300000007364084,
+     "Name": "Research Admin Bldg",
+     "TotalCount": 3
+    }
+   ],
+   "flexFieldsFacet": [],
+   "organizationsFacet": [
+    {
+     "Id": 300000007381550,
+     "Name": "B5800 - Facilities Mgt",
+     "TotalCount": 9
+    },
+    {
+     "Id": 300001192071832,
+     "Name": "O3011 - MSRH Operating Room",
+     "TotalCount": 9
+    },
+    {
+     "Id": 300000007384460,
+     "Name": "M4500 - Alzheim Neurodegenerative Inst",
+     "TotalCount": 6
+    },
+    {
+     "Id": 300001170484214,
+     "Name": "O9277 - HOPD Urology MARC",
+     "TotalCount": 6
+    },
+    {
+     "Id": 300001175554598,
+     "Name": "O9889 - HOPD Infusion ECC",
+     "TotalCount": 6
+    },
+    {
+     "Id": 300001192070163,
+     "Name": "O1101 - MSRH Rx",
+     "TotalCount": 5
+    },
+    {
+     "Id": 300001311808365,
+     "Name": "O9922 - HOPD Neurology Brain Health",
+     "TotalCount": 5
+    },
+    {
+     "Id": 300000007384565,
+     "Name": "M1510 - Neurology",
+     "TotalCount": 4
+    },
+    {
+     "Id": 300000007385458,
+     "Name": "M3139 - UTHP ADM Patient Services",
+     "TotalCount": 4
+    },
+    {
+     "Id": 300000007386024,
+     "Name": "M3113 - UTHP ADM Coding Support",
+     "TotalCount": 4
+    }
+   ],
+   "workplaceTypesFacet": [
+    {
+     "Id": "ORA_ON_SITE",
+     "Name": "On-site",
+     "TotalCount": 237
+    },
+    {
+     "Id": "ORA_HYBRID",
+     "Name": "Hybrid",
+     "TotalCount": 13
+    },
+    {
+     "Id": "ORA_REMOTE",
+     "Name": "Remote",
+     "TotalCount": 3
+    }
+   ]
+  }
+ ],
+ "count": 1,
+ "hasMore": false,
+ "limit": 200,
+ "offset": 0,
+ "links": [
+  {
+   "rel": "self",
+   "href": "https://fa-eomf-saasfaprod1.fa.ocs.oraclecloud.com:443/hcmRestApi/resources/11.13.18.05/recruitingCEJobRequisitions",
+   "name": "recruitingCEJobRequisitions",
+   "kind": "collection"
+  },
+  {
+   "rel": "action",
+   "href": "https://fa-eomf-saasfaprod1.fa.ocs.oraclecloud.com:443/hcmRestApi/resources/11.13.18.05/recruitingCEJobRequisitions/action/getRequisitionsLocationCoordinates",
+   "name": "getRequisitionsLocationCoordinates",
+   "kind": "other"
+  },
+  {
+   "rel": "action",
+   "href": "https://fa-eomf-saasfaprod1.fa.ocs.oraclecloud.com:443/hcmRestApi/resources/11.13.18.05/recruitingCEJobRequisitions/action/getRequisitionDetailsForMap",
+   "name": "getRequisitionDetailsForMap",
+   "kind": "other"
+  }
+ ]
+}

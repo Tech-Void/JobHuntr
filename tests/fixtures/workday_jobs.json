@@ -1,0 +1,240 @@
+{
+ "total": 5,
+ "jobPostings": [
+  {
+   "title": "Research Technician II",
+   "externalPath": "/job/Springfield-IL/Research-Technician-II_R-00191105",
+   "locationsText": "Springfield, IL",
+   "postedOn": "Posted 30+ Days Ago",
+   "bulletFields": [
+    "R-00191105"
+   ]
+  },
+  {
+   "title": "Research Scientist I",
+   "externalPath": "/job/Springfield-IL/Research-Scientist-I_R-00191115",
+   "locationsText": "Springfield, IL",
+   "postedOn": "Posted 30+ Days Ago",
+   "bulletFields": [
+    "R-00191115"
+   ]
+  },
+  {
+   "title": "\u200b\u200bIDCS Chief Engineer\u200b",
+   "externalPath": "/job/Springfield-IL/XMLNAME---IDCS-Chief-Engineer-_R-00191675",
+   "locationsText": "Springfield, IL",
+   "postedOn": "Posted 30+ Days Ago",
+   "bulletFields": [
+    "R-00191675"
+   ]
+  },
+  {
+   "title": "Cloud Infrastructure Engineer",
+   "externalPath": "/job/Springfield-IL/Cloud-Infrastructure-Engineer_R-00192276",
+   "locationsText": "Springfield, IL",
+   "postedOn": "Posted 24 Days Ago",
+   "bulletFields": [
+    "R-00192276"
+   ]
+  },
+  {
+   "title": "Network Administrator - Night Shift",
+   "externalPath": "/job/Springfield-IL/Network-Administrator---Night-Shift_R-00193747",
+   "locationsText": "Springfield, IL",
+   "postedOn": "Posted 7 Days Ago",
+   "bulletFields": [
+    "R-00193747"
+   ]
+  }
+ ],
+ "facets": [
+  {
+   "facetParameter": "jobFamilyGroup",
+   "descriptor": "Job Category",
+   "values": [
+    {
+     "descriptor": "Engineering",
+     "id": "96064918a76d1023f15857f0a8156d30",
+     "count": 7
+    },
+    {
+     "descriptor": "Information Technology",
+     "id": "96064918a76d1023f1586f686a4d6d3c",
+     "count": 5
+    },
+    {
+     "descriptor": "Scientist",
+     "id": "96064918a76d1023f15885da81546da2",
+     "count": 2
+    },
+    {
+     "descriptor": "Service Contract Act",
+     "id": "2634959652a210339c2f33eaf871e77c",
+     "count": 1
+    },
+    {
+     "descriptor": "Proj and Prog Mgmt",
+     "id": "96064918a76d1023f1587c0882b16d78",
+     "count": 1
+    },
+    {
+     "descriptor": "Defense Intel Geopoltcl",
+     "id": "96064918a76d1023f158539c6bee6d2e",
+     "count": 1
+    },
+    {
+     "descriptor": "Consulting Emp",
+     "id": "628672aa96cf106cf05ce9babbfe2483",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "facetParameter": "workerSubType",
+   "descriptor": "Job Type",
+   "values": [
+    {
+     "descriptor": "Regular",
+     "id": "67204510ecdd106c137c79d699a6ea0a",
+     "count": 17
+    },
+    {
+     "descriptor": "Consulting Employee",
+     "id": "67204510ecdd106c137c80309b76ea0e",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "facetParameter": "timeType",
+   "descriptor": "Time Type",
+   "values": [
+    {
+     "descriptor": "Full time",
+     "id": "078d015e652d106885a843d5dd5e0dce",
+     "count": 17
+    },
+    {
+     "descriptor": "Part time",
+     "id": "078d015e652d106885a843d3e95e0dcd",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "facetParameter": "Is_Evergreen",
+   "descriptor": "Is Evergreen",
+   "values": [
+    {
+     "descriptor": "False",
+     "id": "dc7504c8446c11de98360015c5e6daf6",
+     "count": 14
+    },
+    {
+     "descriptor": "True",
+     "id": "dc7503d8446c11de98360015c5e6daf6",
+     "count": 4
+    }
+   ]
+  },
+  {
+   "facetParameter": "locationMainGroup",
+   "values": [
+    {
+     "facetParameter": "locationCountry",
+     "descriptor": "Location Country",
+     "values": [
+      {
+       "descriptor": "United States of America",
+       "id": "bc33aa3152ec42d4995f4791a106ed09",
+       "count": 18
+      }
+     ]
+    },
+    {
+     "facetParameter": "locations",
+     "descriptor": "Locations",
+     "values": [
+      {
+       "descriptor": "10586 Columbus OH",
+       "id": "bd48c8fcdeec10016525625ba5ce0000",
+       "count": 1
+      },
+      {
+       "descriptor": "10587 Boulder CO",
+       "id": "8186dbd65e17100165dd2471347f0000",
+       "count": 1
+      },
+      {
+       "descriptor": "10588 Springfield IL",
+       "id": "bd48c8fcdeec10016636295c22d40000",
+       "count": 1
+      },
+      {
+       "descriptor": "Boulder, CO",
+       "id": "da70a15d3ef401e28b1b6822f0cdda8e",
+       "count": 4
+      },
+      {
+       "descriptor": "Chantilly, VA",
+       "id": "da70a15d3ef401259e92bf47f0cd8fb9",
+       "count": 5
+      },
+      {
+       "descriptor": "Columbia, MD",
+       "id": "da70a15d3ef401f89ea6252ff0cd1a9d",
+       "count": 4
+      },
+      {
+       "descriptor": "Columbus, OH",
+       "id": "da70a15d3ef40140fc0d353cf0cd22ac",
+       "count": 4
+      },
+      {
+       "descriptor": "Springfield, IL",
+       "id": "da70a15d3ef4011bbf9e8d44f0cde6b5",
+       "count": 16
+      },
+      {
+       "descriptor": "Webster, IL",
+       "id": "da70a15d3ef401e5ba196f46f0cde5b7",
+       "count": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "facetParameter": "distance",
+   "descriptor": "Distance",
+   "values": [
+    {
+     "descriptor": "10 miles",
+     "id": "a538cdb60a631000078a2c60ed1700f3",
+     "count": 1
+    },
+    {
+     "descriptor": "25 miles",
+     "id": "a538cdb60a631000078a2c6a410300f4",
+     "count": 1
+    },
+    {
+     "descriptor": "50 miles",
+     "id": "a538cdb60a631000078a2c6eadd300f5",
+     "count": 1
+    },
+    {
+     "descriptor": "100 miles",
+     "id": "a538cdb60a631000078a2c71efcc00f6",
+     "count": 1
+    },
+    {
+     "descriptor": "Any Distance",
+     "id": "a538cdb60a631000078a2c74f73b00f7",
+     "count": 1
+    }
+   ]
+  }
+ ],
+ "userAuthenticated": false
+}

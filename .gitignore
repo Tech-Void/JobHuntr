@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+.pytest_cache/
+*.db
+*.db-wal
+*.db-shm
+
+# personal source pack (local employers / area) - never commit
+my_sources.json
