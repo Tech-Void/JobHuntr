@@ -16,7 +16,9 @@ EXCLUDE = rx(r"\bnurs", r"\brn\b", r"physician", r"therap", r"(?<!information )(
              r"claims", r"actuar", r"recruiter", r"attorney", r"paralegal", r"food", r"barista", r"cashier", r"sales",
              r"telecommunicator", r"non-it", r"\bhr\b", r"human resources", r"finance", r"procurement",
              r"category manager", r"customer service", r"embedded", r"radar", r"combat", r"\bmbse\b", r"model-based",
-             r"flight", r"mission engineering", r"product manager", r"trainer", r"\bstring engineer")
+             r"flight", r"mission engineering", r"product manager", r"trainer", r"\bstring engineer",
+             r"provider network|network (?:development|relations|contract|management (?:coordinator|consultant))",
+             r"technologist", r"medical (?:coder|imaging)", r"health information tech")
 
 # (track, base score, pattern) - first match wins
 TRACKS = [
@@ -28,7 +30,9 @@ TRACKS = [
                              r"blue team", r"\bisso\b", r"\bissm\b", r"information assurance", r"\bia\b", r"\brmf\b",
                              r"\bgrc\b", r"identity", r"\biam\b", r"access management", r"\bsiem\b", r"splunk",
                              r"security admin", r"security specialist", r"it security", r"network security",
-                             r"cloud security", r"privacy", r"compliance analyst", r"threat", r"\bcissp\b")),
+                             r"cloud security", r"privacy", r"compliance analyst", r"threat", r"\bcissp\b",
+                             r"network defense", r"computer network defense", r"\bcnd\b", r"offensive security",
+                             r"digital security", r"security (?:engineer|analyst|architect)")),
     ("Sysadmin / Infrastructure", 86, rx(r"system(?:s)? admin", r"sysadmin", r"network admin", r"network engineer",
                                          r"network tech", r"network analyst", r"network specialist",
                                          r"(?:it|technology|cloud|network|systems?) infrastructure",
@@ -37,11 +41,15 @@ TRACKS = [
                                          r"devops", r"site reliability", r"database admin", r"\bdba\b", r"storage",
                                          r"endpoint", r"intune", r"sccm|mecm", r"azure", r"\baws\b", r"m365|office 365",
                                          r"systems engineer", r"\bnoc\b", r"network operations", r"data center",
-                                         r"telecom", r"voip", r"unified comm", r"wireless")),
+                                         r"telecom", r"voip", r"unified comm", r"wireless",
+                                         r"\bnetwork(?:ing)?\b", r"computer operations?", r"software install",
+                                         r"site reliability", r"system(?:s)? (?:engineer|operations)")),
     ("IT Support", 82, rx(r"help ?desk", r"service desk", r"desktop", r"it support", r"technical support", r"tech support",
                           r"support tech", r"support specialist", r"it tech", r"computer tech", r"deskside", r"end user",
                           r"\bit specialist", r"\bit\b", r"information technology", r"information systems?",
-                          r"technology support", r"pc tech", r"field service tech", r"it associate", r"it analyst")),
+                          r"technology support", r"pc tech", r"field services? (?:tech|engineer|rep)", r"it associate", r"it analyst",
+                          r"technical support rep", r"mobile device", r"workstation", r"technology (?:specialist|technician|support)",
+                          r"operations support analyst", r"desktop engineer")),
     ("Adjacent IT", 55, rx(r"application analyst", r"applications analyst", r"\bepic\b", r"clinical (?:app|informatics)",
                            r"informatics", r"systems analyst", r"business systems", r"technology", r"software",
                            r"developer", r"data analyst", r"programmer", r"biomed(?:ical)? equip", r"\bhtm\b",
@@ -69,10 +77,16 @@ def level_tags(title: str):
     return adj, tags
 
 
+DEV_TITLE = rx(r"software (?:engineer|developer|development)", r"developer", r"programmer", r"full[- ]stack",
+              r"front[- ]end", r"back[- ]end", r"data (?:engineer|scientist)", r"machine learning|ml|ai engineer")
+
+
 def classify_it(title: str):
     """Built-in IT/cyber profile. Returns (track, score) or None."""
     if EXCLUDE.search(title):
         return None
+    if DEV_TITLE.search(title) and not re.search(r"cyber|security|forensic|site reliability", title, re.I):
+        return "Adjacent IT", 55  # "Software Engineer II - Storage" is development, not storage administration
     for track, score, pat in TRACKS:
         if pat.search(title):
             return track, score

@@ -42,7 +42,7 @@ const S = {
 
 // Filters are kept per search, so a track chip picked in one search can't hide everything in another.
 const FILTER_DEFAULTS = { q: "", tracks: [], category: "", onlyNew: false, hideSenior: true, localOnly: false,
-                          starred: false, showHidden: false, noActiveClear: false, sort: "best" };
+                          starred: false, showHidden: false, noActiveClear: false, hidePoor: false, sort: "best" };
 Object.defineProperty(S, "f", {
   get() {
     const key = S.searchId ?? "none";
@@ -54,7 +54,7 @@ Object.defineProperty(S, "f", {
   },
 });
 const saveFilters = () => save("filtersBySearch", S.filters);
-const NARROWING = ["q", "tracks", "category", "onlyNew", "localOnly", "starred", "noActiveClear"];
+const NARROWING = ["q", "tracks", "category", "onlyNew", "localOnly", "starred", "noActiveClear", "hidePoor"];
 const activeFilterCount = f => NARROWING.filter(k => Array.isArray(f[k]) ? f[k].length : f[k]).length;
 
 function load(key, dflt) { try { return JSON.parse(localStorage.getItem("jh." + key)) ?? dflt; } catch { return dflt; } }
@@ -133,7 +133,8 @@ function ago(ts) {
   return `${Math.round(mins / 1440)} d ago`;
 }
 const isRemote = j => /remote|telework|work from home|\bhome\b/i.test(j.location) && !(S.areaRx && S.areaRx.test(j.location));
-const isActiveClear = j => j.facts ? j.facts.clearance === "Active required" : j.tags.includes("Clearance");
+const isBlocked = j => j.fit ? j.fit.blockers.length > 0 : (j.facts ? j.facts.clearance === "Active required" : j.tags.includes("Clearance"));
+const fitOf = j => j.fit ? j.fit.fit : -1;
 
 function recruiterBadge(f) {
   if (!f || !f.recruiter) return "";
@@ -142,17 +143,49 @@ function recruiterBadge(f) {
   return `<span class="recruiter" title="${esc(tip)}" aria-label="Recruiter listed">${ICON.recruiter}</span>`;
 }
 
-function matchTag(m) {
-  if (!m) return "";
-  const cls = m.score >= 60 ? "match-hi" : m.score >= 35 ? "match-mid" : "match-lo";
-  return `<span class="tag ${cls}" title="Your resume covers ${m.have.length} of ${m.have.length + m.missing.length} skills this posting mentions">${m.score}% match</span>`;
+const FIT_CLASS = { "Strong fit": "fit-strong", "Good fit": "fit-good", "Stretch": "fit-stretch", "Poor fit": "fit-poor" };
+
+function fitTag(f) {
+  if (!f) return "";
+  const tip = f.reasons.map(([k, t]) => `${k === "+" ? "✓" : "✗"} ${t}`).join("\n") + (f.estimated ? "\n(estimated from the title: description not read yet)" : "");
+  return `<span class="tag ${FIT_CLASS[f.label] || ""}" title="${esc(tip)}">${f.estimated ? "~" : ""}${f.fit} · ${esc(f.label)}</span>`
+    + (f.blockers.length ? `<span class="tag bad" title="${esc(f.blockers.join("\n"))}">${esc(f.blockers[0])}</span>` : "");
 }
 
-function skillsHtml(m) {
-  if (!m) return "";
-  return `<div style="margin-bottom:10px"><dt style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--faint)">Resume match · ${m.score}%</dt>
-    <div class="skill-list">${m.have.map(s => `<span class="skill have" title="On your resume">✓ ${esc(s)}</span>`).join("")}
-    ${m.missing.map(s => `<span class="skill miss" title="Not on your resume">${esc(s)}</span>`).join("")}</div></div>`;
+function chip(s) {
+  if (!s.have && s.related) {
+    return `<span class="skill related" title="Not on your resume, but related to your ${esc(s.related)} experience">≈ ${esc(s.name)}</span>`;
+  }
+  const cls = s.have ? (s.lab ? "skill lab" : "skill have") : "skill miss";
+  const title = s.have ? (s.lab ? "Only in labs/coursework on your resume" : "On your resume") : "Not on your resume";
+  return `<span class="${cls}" title="${title}">${s.have ? (s.lab ? "◐ " : "✓ ") : ""}${esc(s.name)}</span>`;
+}
+
+function fitDetailHtml(f) {
+  if (!f) return S.profileSet ? "" : `<p class="sub">Add your resume under <b>My resume</b> to see how well you fit each job.</p>`;
+  const pros = f.reasons.filter(r => r[0] === "+"), cons = f.reasons.filter(r => r[0] === "-");
+  return `<div class="fit-box">
+    <div class="fit-head"><span class="fit-num ${FIT_CLASS[f.label]}">${f.fit}</span><div><b>${esc(f.label)}</b>
+      ${f.blockers.length && f.skill_fit >= 60 ? `<div class="sub">Your skills fit well (${f.skill_fit}), but there's a hard requirement you don't meet yet.</div>` : ""}</div></div>
+    <div class="fit-why">
+      <ul class="why good">${pros.map(r => `<li>✓ ${esc(r[1])}</li>`).join("") || '<li class="sub">Nothing stands out</li>'}</ul>
+      <ul class="why bad">${cons.map(r => `<li>✗ ${esc(r[1])}</li>`).join("") || '<li class="sub">No gaps found</li>'}</ul>
+    </div>
+    ${f.skills.required.length ? `<dt class="mini">Required skills</dt><div class="skill-list">${f.skills.required.map(chip).join("")}</div>` : ""}
+    ${f.skills.preferred.length ? `<dt class="mini">Nice to have</dt><div class="skill-list">${f.skills.preferred.map(chip).join("")}</div>` : ""}
+    ${f.skills.required.length || f.skills.preferred.length ? '<p class="sub legend-line">✓ on your resume · ◐ labs/coursework only · ≈ related experience · dashed = not on your resume</p>' : ""}
+  </div>`;
+}
+
+function tailorHtml(t) {
+  if (!t) return "";
+  return `<details class="tailor" open><summary><b>Tailor your resume for this job</b></summary>
+    ${t.lead.length ? `<dt class="mini">Lead with these lines</dt><ol class="lead">${t.lead.map(b => `<li>${esc(b.text)}${b.skills.length ? ` <span class="sub">(${esc(b.skills.slice(0, 3).join(", "))})</span>` : ""}</li>`).join("")}</ol>` : ""}
+    ${t.skills_line ? `<dt class="mini">Skills line, in their priority order</dt>
+      <div class="copy-row"><code>${esc(t.skills_line)}</code><button class="btn small ghost" data-act="copy-text" data-text="${esc(t.skills_line)}">Copy</button></div>` : ""}
+    ${t.mirror.length ? `<dt class="mini">Say it their way</dt><ul class="mirror">${t.mirror.map(m => `<li>You wrote <i>${esc(m.yours)}</i>, they say <b>${esc(m.theirs)}</b></li>`).join("")}</ul>` : ""}
+    ${t.gaps.length ? `<dt class="mini">Before you apply</dt><ul class="gaps">${t.gaps.map(g => `<li>${esc(g)}</li>`).join("")}</ul>` : ""}
+  </details>`;
 }
 
 function similarHtml(j) {
@@ -267,15 +300,16 @@ function filteredJobs() {
     (!f.hideSenior || !j.tags.includes("Senior")) &&
     (!f.localOnly || !isRemote(j)) &&
     (!f.starred || j.starred) &&
-    (!f.noActiveClear || !isActiveClear(j)) &&
+    (!f.noActiveClear || !isBlocked(j)) &&
+    (!f.hidePoor || !j.fit || j.fit.fit >= 28) &&
     (!q || `${j.title} ${j.company} ${j.location} ${j.extra}`.toLowerCase().includes(q)));
   const pay = j => j.facts?.pay?.annual_mid ?? -1;
   const sorters = {
-    best: (a, b) => b.is_new - a.is_new || b.score - a.score || a.company.localeCompare(b.company),
+    best: (a, b) => (a.fit && b.fit ? fitOf(b) - fitOf(a) : 0) || b.is_new - a.is_new || b.score - a.score || a.company.localeCompare(b.company),
     newest: (a, b) => b.first_seen.localeCompare(a.first_seen) || b.score - a.score,
     company: (a, b) => a.company.localeCompare(b.company) || b.score - a.score,
     pay: (a, b) => pay(b) - pay(a) || b.score - a.score,
-    fit: (a, b) => (b.match?.score ?? -1) - (a.match?.score ?? -1) || b.score - a.score,
+    fit: (a, b) => fitOf(b) - fitOf(a) || b.score - a.score,
   };
   return rows.sort(sorters[f.sort] || sorters.best);
 }
@@ -304,11 +338,12 @@ function renderJobs() {
       <input type="search" id="fq" placeholder="Filter by title, company, location…" value="${esc(f.q)}">
       <select id="fcat" aria-label="Category"><option value="">All categories</option>${cats.map(c => `<option ${c === f.category ? "selected" : ""}>${esc(c)}</option>`).join("")}</select>
       <select id="fsort" aria-label="Sort">
-        ${[["best", "Best match"], ["newest", "Newest found"], ["company", "Company"], ["pay", "Highest pay"], ["fit", "Resume match"]].map(([v, l]) => `<option value="${v}" ${f.sort === v ? "selected" : ""}>Sort: ${l}</option>`).join("")}
+        ${[["best", S.profileSet ? "Best fit" : "Best match"], ["newest", "Newest found"], ["company", "Company"], ["pay", "Highest pay"]].map(([v, l]) => `<option value="${v}" ${f.sort === v ? "selected" : ""}>Sort: ${l}</option>`).join("")}
       </select>
       <label class="tog"><input type="checkbox" data-f="onlyNew" ${f.onlyNew ? "checked" : ""}> New only</label>
       <label class="tog"><input type="checkbox" data-f="hideSenior" ${f.hideSenior ? "checked" : ""}> Hide senior/lead</label>
-      <label class="tog"><input type="checkbox" data-f="noActiveClear" ${f.noActiveClear ? "checked" : ""}> Hide active-clearance</label>
+      <label class="tog" title="Hides jobs with a hard blocker: an active clearance, a cert you don't hold, years far beyond yours, or a niche platform"><input type="checkbox" data-f="noActiveClear" ${f.noActiveClear ? "checked" : ""}> Hide jobs I can't get yet</label>
+      ${S.profileSet ? `<label class="tog"><input type="checkbox" data-f="hidePoor" ${f.hidePoor ? "checked" : ""}> Hide poor fits</label>` : ""}
       <label class="tog"><input type="checkbox" data-f="localOnly" ${f.localOnly ? "checked" : ""}> Local only</label>
       <label class="tog"><input type="checkbox" data-f="starred" ${f.starred ? "checked" : ""}> Starred</label>
       <label class="tog"><input type="checkbox" data-f="showHidden" ${f.showHidden ? "checked" : ""}> Show hidden</label>
@@ -353,7 +388,7 @@ function jobCard(j) {
         </div>
         <div class="sub"><b>${esc(j.company)}</b> · ${esc(j.location)}${j.extra ? " · " + esc(j.extra) : ""}${j.posted ? " · " + esc(j.posted) : ""}</div>
         <div class="tags">
-          ${matchTag(j.match)}
+          ${fitTag(j.fit)}
           <span class="tag track">${esc(j.track)}</span>
           ${j.similar?.length ? `<span class="tag" title="Same title posted ${j.similar.length + 1} times">×${j.similar.length + 1} postings</span>` : ""}
           <span class="tag">${esc(j.category)}</span>
@@ -399,7 +434,7 @@ function detailHtml(j) {
     return `<p class="sub">${d.details_error ? "Couldn't read this posting: " + esc(d.details_error) : "Details haven't been read yet."}</p>
             <button class="btn small" data-act="load-details">Read job description</button>`;
   }
-  return `${skillsHtml(d.match)}${similarHtml(j)}${factsGrid(d.facts)}
+  return `${fitDetailHtml(d.fit)}${tailorHtml(d.tailor)}${similarHtml(j)}${factsGrid(d.facts)}
     ${d.description ? `<div class="desc">${esc(d.description.slice(0, 6000))}</div>` : ""}
     <p style="margin:10px 0 0"><a href="${esc(j.url)}" target="_blank" rel="noopener">Open the full posting ${ICON.external}</a></p>
     ${aiHtml(j)}`;
@@ -492,11 +527,14 @@ view().addEventListener("click", async e => {
         if (S.view === "jobs") renderJobList();
         break;
       }
+      case "copy-text":
+        await navigator.clipboard.writeText(actEl.dataset.text || "");
+        toast("Copied"); break;
       case "ai-copy":
         await navigator.clipboard.writeText(S.ai.get(id)?.text || "");
         toast("Copied to clipboard"); break;
       case "clear-filters":
-        Object.assign(S.f, { q: "", tracks: [], category: "", onlyNew: false, localOnly: false, starred: false, noActiveClear: false });
+        Object.assign(S.f, { q: "", tracks: [], category: "", onlyNew: false, localOnly: false, starred: false, noActiveClear: false, hidePoor: false });
         saveFilters(); S.shown = PAGE_SIZE; renderJobs(); break;
       case "edit-search": go("searches"); break;
       case "go-compare": go("compare"); break;
@@ -593,7 +631,7 @@ function compareTable(jobs) {
     ["Location", j => esc(j.location)],
     ["Workplace", j => esc(f(j).workplace || "Not stated")],
     ["Pay", j => f(j).pay ? `<b>${esc(f(j).pay.text)}</b>` : '<span class="sub">Not listed</span>'],
-    ["Resume match", j => j.match ? `${matchTag(j.match)}<div class="skill-list">${j.match.missing.slice(0, 8).map(x => `<span class="skill miss">${esc(x)}</span>`).join("")}</div>`
+    ["Your fit", j => j.fit ? `${fitTag(j.fit)}<ul class="why compact">${j.fit.reasons.slice(0, 5).map(([k, t]) => `<li class="${k === "+" ? "ok" : "err"}">${k === "+" ? "✓" : "✗"} ${esc(t)}</li>`).join("")}</ul>`
       : `<span class="sub">${S.profileSet ? "Too few skills listed to score" : 'Add your resume under "My resume"'}</span>`],
     ["Clearance", j => esc(f(j).clearance || "")],
     ["Experience", j => f(j).years != null ? `${f(j).years}+ years` : '<span class="sub">Not stated</span>'],
@@ -939,12 +977,64 @@ async function renderProfile() {
         <input type="text" name="extra" value="${esc(p.extra)}" placeholder="e.g. Security+ (studying), Splunk, Active Directory"></label>
       <div style="text-align:right"><button class="btn primary">Save &amp; re-score jobs</button></div>
     </form>
+    ${p.facts ? aboutYouForm(p) : ""}
     <div class="panel">
       <h3>Skills JobHuntr found (${p.skills.length})</h3>
-      <p class="help">${p.skills.length ? "These are matched against each job's description." : "Save your resume to see the skills it picks up."}</p>
-      <div class="skill-list">${p.skills.map(x => `<span class="skill have">${esc(x)}</span>`).join("")}</div>
+      <p class="help">${p.skills.length ? "Skills from your work history count fully. Skills only in labs, coursework or \"introductory\" mentions (◐) count half, so a job that needs them in production isn't shown as a perfect fit." : "Save your resume to see the skills it picks up."}</p>
+      <div class="skill-list">${p.skills.map(x => (p.skills_lab || []).includes(x)
+        ? `<span class="skill lab" title="Lab / coursework level">◐ ${esc(x)}</span>` : `<span class="skill have">${esc(x)}</span>`).join("")}</div>
     </div>`;
 }
+
+const DEGREE_OPTS = [[1, "High school / GED"], [2, "Associate's"], [3, "Bachelor's"], [4, "Master's"], [5, "PhD"]];
+const CLEAR_OPTS = [["none", "None (eligible to obtain)"], ["public trust", "Public Trust"], ["secret", "Secret (active)"], ["ts", "Top Secret (active)"], ["ts/sci", "TS/SCI (active)"]];
+
+function aboutYouForm(p) {
+  const f = p.facts, d = p.detected || {};
+  const opt = (list, v) => list.map(([k, l]) => `<option value="${k}" ${String(k) === String(v) ? "selected" : ""}>${esc(l)}</option>`).join("");
+  const was = (k, fmt = x => x) => p.overrides && k in p.overrides ? ` <span class="sub">(found: ${esc(fmt(d[k]) ?? "none")})</span>` : "";
+  return `<form class="panel form" id="aboutForm">
+    <h3>About you</h3>
+    <p class="help">Read from your resume. These drive the fit score (experience gaps, degree, certs, clearance), so correct anything that's off.</p>
+    <div class="row3">
+      <label class="f">Years of IT experience${was("years")}<input type="number" name="years" min="0" max="50" value="${f.years ?? ""}"></label>
+      <label class="f">Highest completed degree${was("degree")}<select name="degree">${opt(DEGREE_OPTS, f.degree)}</select></label>
+      <label class="f">Degree in progress<select name="degree_in_progress"><option value="0">None</option>${opt(DEGREE_OPTS.slice(1), f.degree_in_progress)}</select></label>
+    </div>
+    <div class="row3">
+      <label class="f">Certifications you hold (comma separated)<input type="text" name="certs" value="${esc((f.certs || []).join(", "))}" placeholder="e.g. A+, Security+"></label>
+      <label class="f">Working toward<input type="text" name="certs_in_progress" value="${esc((f.certs_in_progress || []).join(", "))}"></label>
+      <label class="f">Security clearance<select name="clearance">${opt(CLEAR_OPTS, f.clearance)}</select></label>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      ${p.overrides && Object.keys(p.overrides).length ? '<button type="button" class="btn" data-act="reset-about">Use what my resume says</button>' : ""}
+      <button class="btn primary">Save &amp; re-score</button>
+    </div>
+  </form>`;
+}
+
+async function saveAbout(overrides) {
+  await api("/api/profile", { method: "POST", body: { overrides } });
+  await loadProfile(); await loadJobs({ fresh: true }); S.details.clear();
+  toast("Saved. Fit scores updated."); renderProfile();
+}
+
+view().addEventListener("submit", async e => {
+  if (e.target.id !== "aboutForm") return;
+  e.preventDefault();
+  const fd = new FormData(e.target), d = S.profile.detected || {};
+  const list = v => String(v || "").split(",").map(x => x.trim()).filter(Boolean);
+  const vals = { years: fd.get("years") === "" ? null : +fd.get("years"), degree: +fd.get("degree"),
+                 degree_in_progress: +fd.get("degree_in_progress"), certs: list(fd.get("certs")),
+                 certs_in_progress: list(fd.get("certs_in_progress")), clearance: fd.get("clearance") };
+  // only keep values that differ from what the resume says, so a new resume upload still updates the rest
+  const overrides = Object.fromEntries(Object.entries(vals).filter(([k, v]) => JSON.stringify(v) !== JSON.stringify(d[k])));
+  try { await saveAbout(overrides); } catch (err) { toast(err.message); }
+});
+view().addEventListener("click", async e => {
+  if (!e.target.closest('[data-act="reset-about"]')) return;
+  try { await saveAbout({}); } catch (err) { toast(err.message); }
+});
 
 view().addEventListener("change", async e => {
   if (e.target.id !== "resumeFile" || !e.target.files.length) return;

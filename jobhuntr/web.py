@@ -9,7 +9,8 @@ from datetime import datetime, timedelta, timezone
 
 from flask import Flask, Response, abort, jsonify, request, send_from_directory
 
-from . import ai, region, resume, skills, system
+from . import ai, fit, region, requirements, resume, skills, system
+from . import tailor as tailoring
 from .crawler import Crawler, days_since, load_config, load_pack, parse_workday_url
 from .db import STATUSES, Database
 from .matching import Search, group_similar, level_tags
@@ -64,15 +65,31 @@ def create_app(db: Database, crawler: Crawler) -> Flask:
         return lr["started_at"] if lr and len(db.runs(2)) > 1 else None  # nothing is "new" on the first run
 
     def my_skills():
-        return (db.get_setting("profile") or {}).get("skills") or []
+        return (my_profile() or {}).get("skills") or []
 
-    def public(job, new_since, mine=None):
+    def my_profile():
+        """The saved profile, upgraded in place if it predates structured facts (years, degree, certs...)."""
+        p = db.get_setting("profile")
+        if p and p.get("resume_text") and ("facts" not in p or p.get("v") != resume.PROFILE_VERSION):
+            p = resume.build_profile(p["resume_text"], p.get("extra", ""), p.get("overrides"))
+            db.set_setting("profile", p)
+        return p if p and p.get("resume_text") else None
+
+    def job_fit(job, facts, prof):
+        req = (facts or {}).get("req") or requirements.parse("", job["title"])
+        result = fit.score(job["title"], req, prof)
+        result["estimated"] = not (facts and facts.get("req"))  # no description read yet: title-only guess
+        return result
+
+    def public(job, new_since, prof=None):
         job = dict(job)
         job.pop("description", None)
         job["facts"] = json.loads(job["facts"]) if job.get("facts") else None
         job["is_new"] = bool(new_since and job["first_seen"] >= new_since)
-        if mine and job["facts"]:
-            job["match"] = skills.match(job["facts"].get("skills"), mine)
+        if prof:
+            job["fit"] = job_fit(job, job["facts"], prof)
+            if job["facts"]:
+                job["facts"].pop("req", None)  # keep list payloads small; the detail view has it
         return job
 
     # ------------------------------------------------------------------ UI --
@@ -128,22 +145,26 @@ def create_app(db: Database, crawler: Crawler) -> Flask:
     def list_jobs():
         search = search_or_404(int(request.args.get("search", 0)))
         new_since = last_run_start()
-        mine = my_skills()
+        prof = my_profile()
         out = []
         for j in db.jobs_for_matching(with_description=search.search_descriptions):
             if not j["active"]:
                 continue
             m = search.match(j)
             if m:
-                out.append({**public(j, new_since, mine), **m})
+                out.append({**public(j, new_since, prof), **m})
         return jsonify(group_similar(out))
 
     @app.get("/api/jobs/<int:job_id>")
     def get_job(job_id):
         job = db.get_job(job_id) or abort(404)
         desc = job.get("description")
-        out = public(job, last_run_start(), my_skills())
+        prof = my_profile()
+        facts = json.loads(job["facts"]) if job.get("facts") else None
+        out = public(job, last_run_start(), prof)
         out["description"] = desc
+        if prof and facts and facts.get("req"):
+            out["tailor"] = tailoring.suggest(prof, job["title"], desc or "", facts["req"], out["fit"])
         return jsonify(out)
 
     @app.post("/api/jobs/<int:job_id>/details")
@@ -327,12 +348,14 @@ def create_app(db: Database, crawler: Crawler) -> Flask:
     # ------------------------------------------------------------- profile --
     @app.get("/api/profile")
     def get_profile():
-        return jsonify(db.get_setting("profile") or resume.build_profile("", ""))
+        return jsonify(my_profile() or resume.build_profile("", ""))
 
     @app.post("/api/profile")
     def save_profile():
         b = request.get_json(force=True)
-        p = resume.build_profile(b.get("resume_text", ""), b.get("extra", ""))
+        old = db.get_setting("profile") or {}
+        overrides = b.get("overrides", old.get("overrides"))
+        p = resume.build_profile(b.get("resume_text", old.get("resume_text", "")), b.get("extra", old.get("extra", "")), overrides)
         db.set_setting("profile", p)
         return jsonify(p)
 

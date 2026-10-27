@@ -118,7 +118,7 @@ class Crawler:
                 raise ValueError(f"Source '{job['source']}' is no longer configured")
             d = ADAPTERS[src["type"]].fetch_details(http, src, job["url"])
             text, name, email = d["text"], d["contact_name"], d["contact_email"]
-        facts = extract.analyze(text, job.get("location", ""), name, email)
+        facts = extract.analyze(text, job.get("location", ""), name, email, job.get("title", ""))
         self.db.set_details(job["id"], text, facts)
         return facts
 

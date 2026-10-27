@@ -167,17 +167,22 @@ class Database:
         # fetch failed); re-analyze everything when the extraction rules changed.
         where = "description IS NOT NULL" if self.get_setting("facts_version") != version \
             else "description IS NOT NULL AND facts IS NULL"
-        rows = self._all(f"SELECT id, description, location, facts FROM jobs WHERE {where}")
-        with self.lock:
-            for r in rows:
+        rows = self._all(f"SELECT id, title, description, location, facts FROM jobs WHERE {where}")
+        self.reanalyze_progress = {"done": 0, "total": len(rows)}
+        for start in range(0, len(rows), 40):
+            batch = []
+            for r in rows[start:start + 40]:  # analysis runs outside the lock so the API stays responsive
                 old = json.loads(r["facts"]) if r["facts"] else {}
                 rec = old.get("recruiter") or {}
                 # keep contacts that came from structured fields (e.g. Oracle's ExternalContactName)
                 structured = rec.get("snippet") == "Listed as the posting's contact"
                 facts = analyze(r["description"], r["location"], rec.get("name", "") if structured else "",
-                                rec.get("email", "") if structured else "")
-                self.conn.execute("UPDATE jobs SET facts=?, details_error=NULL WHERE id=?", (json.dumps(facts), r["id"]))
-            self.conn.commit()
+                                rec.get("email", "") if structured else "", r["title"])
+                batch.append((json.dumps(facts), r["id"]))
+            with self.lock:
+                self.conn.executemany("UPDATE jobs SET facts=?, details_error=NULL WHERE id=?", batch)
+                self.conn.commit()
+            self.reanalyze_progress["done"] = start + len(batch)
         self.set_setting("facts_version", version)
         return len(rows)
 

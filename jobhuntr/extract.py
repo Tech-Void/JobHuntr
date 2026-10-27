@@ -1,10 +1,10 @@
 """Pull comparable facts out of a job description: recruiter, pay, clearance, certs, experience, degree."""
 import re
 
-from . import skills
+from . import requirements
 
 # Bump when the rules below change so stored descriptions get re-analyzed on next start.
-VERSION = 5
+VERSION = 11
 
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 # Phrases that name the hiring contact. Strong cues may give just a name; weak cues need an email nearby
@@ -123,8 +123,9 @@ def find_workplace(text, location=""):
     return None
 
 
-def analyze(text: str, location: str = "", contact_name: str = "", contact_email: str = "") -> dict:
+def analyze(text: str, location: str = "", contact_name: str = "", contact_email: str = "", title: str = "") -> dict:
     text = text or ""
+    req = requirements.parse(text, title)
     return {
         "recruiter": find_recruiter(text, contact_name, contact_email),
         "pay": find_pay(text),
@@ -133,5 +134,6 @@ def analyze(text: str, location: str = "", contact_name: str = "", contact_email
         "years": find_years(text),
         "degree": find_degree(text),
         "workplace": find_workplace(text, location),
-        "skills": skills.find_skills(text),
+        "skills": req["skills_all"],
+        "req": req,
     }

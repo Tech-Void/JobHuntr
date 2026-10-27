@@ -82,10 +82,10 @@ def main():
     url = f"http://127.0.0.1:{args.port}/"
 
     db = Database(data_dir() / "jobhuntr.db")
-    db.reanalyze(extract.analyze, extract.VERSION)
     crawler = Crawler(db)
 
     if args.crawl:
+        db.reanalyze(extract.analyze, extract.VERSION)
         headless_crawl(db, crawler, args.port)
         return
 
@@ -97,6 +97,8 @@ def main():
     app = create_app(db, crawler)
     server = make_server("127.0.0.1", args.port, app, threaded=True)
     threading.Thread(target=server.serve_forever, daemon=True).start()
+    # re-score stored jobs after an update without making the window wait
+    threading.Thread(target=db.reanalyze, args=(extract.analyze, extract.VERSION), daemon=True, name="reanalyze").start()
     print(f"JobHuntr {__version__} running at {url}  (data: {data_dir()})")
     if not args.no_window:
         open_window(url)
